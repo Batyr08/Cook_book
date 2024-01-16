@@ -8,11 +8,12 @@ const render = require('../lib/render');
 const Login = require("../view/Login");
 
 router.get("/", (req, res) => {
-  renderTemplate(Login, null, res);
+  render(Login, null, res);
+res.send('ok')
 });
 
 router.post("/", async (req, res) => {
-  const { login, email, password } = req.body;
+  const { login, password } = req.body;
   try {
     const user = await User.findOne({ where: { login } });
     if (user) {
