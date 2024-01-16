@@ -1,35 +1,22 @@
-import path from 'path';
-import morgan from 'morgan';
 import express from 'express';
+import morgan from 'morgan';
+import path from 'path';
 import jsxRender from './lib/jsxRender';
+
 import renderRouter from './routes/renderRouter';
+import recipiesApiRouter from './routes/api/recipiesApiRouter';
+
 import resLocals from './middlewares/resLocals';
 
-require('@babel/register');
 require('dotenv').config();
-const session = require('express-session');
-const FileStore = require('session-file-store')(session);
-
-const sessionConfig = {
-  name: 'Cookbook',
-  store: new FileStore(),
-  secret: 'S bogom',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    maxAge: 9999999,
-    httpOnly: true,
-  },
-};
 
 const app = express();
-const PORT = process.env.PORT ?? 5000;
+const PORT = process.env.DB_PORT ?? 4100;
 
 app.engine('jsx', jsxRender);
 app.set('view engine', 'jsx');
 app.set('views', path.join(__dirname, 'components'));
 
-app.use(session(sessionConfig));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -37,11 +24,12 @@ app.use(express.static('public'));
 app.use(resLocals);
 
 app.get('/', (req, res) => {
-  res.render('Layout');
+  res.render('Layout', {});
 });
 
 app.use('/', renderRouter);
+app.use('/api/recipes', recipiesApiRouter);
 
 app.listen(PORT, () => {
-  console.log(`Сервер запущен на порту: ${PORT}`);
+  console.log(`Example app listening on port ${PORT}`);
 });

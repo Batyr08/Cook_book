@@ -21,7 +21,7 @@ export default function AddRecipeForm({ setRecipes }) {
           <input type="text" name="title" placeholder="Добовьте название" />
           <input type="text" name="img" placeholder="Добавьте картинку" />
           <input type="text" name="description" placeholder="Добавьте описание" />
-          <input type="text" name="ingredients" placeholder="Добовьте ингридиенты" />
+          <input type="text" name="ingredients" placeholder="Добовьте ингредиенты" />
           <input type="number" name="time" placeholder="Добовьте время приготовления" />
           <button className="custom-btn btn-16">Добавить</button>
         </form>

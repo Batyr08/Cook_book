@@ -1,8 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-export default function RecipesList() {
-  const recipes = [];
+export default function RecipesList({ recipes }) {
   return (
     <>
       <link rel="stylesheet" href="/css/recipelist.css" />
