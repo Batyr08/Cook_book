@@ -7,6 +7,8 @@ const logger = require('morgan');
 const path = require('path');
 const { secureRoute, checkUser } = require('./src/middlewares/common');
 
+const mainRouter = require('./src/routes/main')
+
 
 const sessionConfig = {
   name: 'Cookbook',
@@ -20,16 +22,15 @@ const sessionConfig = {
   },
 };
 
+const app = express();
+const PORT = process.env.PORT;
+
 
 app.use(session(sessionConfig));
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(process.cwd(), 'public')));
-
-
-const app = express();
-const PORT = process.env.PORT;
 
 
 app.use('/', mainRouter)
