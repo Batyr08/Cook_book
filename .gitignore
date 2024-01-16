@@ -129,4 +129,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+
+public/app.js
+public/vendor.js
+
 sessions
