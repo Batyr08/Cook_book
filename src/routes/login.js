@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const { User } = require("../../db/models");
 
-const render = require('../lib/render');
+const render = require('../lib/jsxRender');
 
 const Login = require("../view/Login");
 
