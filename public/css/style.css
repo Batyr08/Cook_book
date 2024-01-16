@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    justify-content: center;
+  }
+
+
+.maincontent {
+    box-shadow: 0px 4px 50px 0px #554f0299;
+    width: 1800px;
+    height: 4500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+  }

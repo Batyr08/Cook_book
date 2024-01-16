@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Recipe extends Model {
     /**
@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ User }) {
-      this.belongsTo(User, { foreignKey: 'userId' })
+      this.belongsTo(User, { foreignKey: 'userId' });
     }
   }
   Recipe.init({
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     ingredients: DataTypes.STRING,
     time: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Recipe',
