@@ -1,0 +1,8 @@
+PORT = 4100
+
+DB=postgres://postgres:Bm19081996@localhost:5432/Cookbook
+
+# DB_NAME=nazvanieproekta
+# DB_USER=nemsi
+# DB_PASS=123
+# PORT=3010
