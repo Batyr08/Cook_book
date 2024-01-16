@@ -27,7 +27,7 @@ const sessionConfig = {
 const app = express();
 const PORT = process.env.PORT;
 
-// TEST COMMENT
+// TEST COMMENT 2
 
 
 app.use(session(sessionConfig));
