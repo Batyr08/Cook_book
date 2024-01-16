@@ -7,6 +7,8 @@ const logger = require('morgan');
 const path = require('path');
 const { secureRoute, checkUser } = require('./src/middlewares/common');
 
+const registrationRouter = require('./src/routes/registration')
+const loginRouter = require('./src/routes/login')
 const mainRouter = require('./src/routes/main')
 
 
@@ -32,8 +34,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(process.cwd(), 'public')));
 
-
+app.use("/registration", secureRoute, registrationRouter);
+app.use("/login", secureRoute, loginRouter);
 app.use('/', mainRouter)
+
 app.listen(PORT, () => {
   console.log(`Сервер запущен на порту: ${PORT}`);
 });
