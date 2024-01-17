@@ -7,8 +7,9 @@ import LoginPage from '../pages/LoginPage';
 import SignUpPage from '../pages/SignUpPage';
 import AccountPage from '../pages/AccountPage';
 import RecipesPage from '../pages/RecipesPage';
+import RecipePage from '../pages/RecipePage';
 
-export default function App({ recipes }) {
+export default function App({ recipes, recipe }) {
   return (
     <>
       <link rel="stylesheet" href="/css/style.css" />
@@ -20,13 +21,12 @@ export default function App({ recipes }) {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/account" element={<AccountPage />} />
-          <Route path="/recipes" element={<RecipesPage recipes={recipes} />} />
-
+          <Route path="/recipes" element={<RecipesPage recipes={recipes} recipe={recipe} />} />
+          <Route path="/recipes/:id" element={<RecipePage recipe={recipe} />} />
         </Routes>
 
         <Footer />
       </div>
-
     </>
   );
 }

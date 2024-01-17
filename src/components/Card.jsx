@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Card({ recipe }) {
+export default function Card({ recipe, deleteHandler }) {
   return (
     <>
       <link rel="stylesheet" href="/css/card.css" />
@@ -11,8 +11,10 @@ export default function Card({ recipe }) {
             {recipe.title}
           </h2>
         </div>
-        <a href="/details" className="details">Подробнее → → →</a>
-
+        <a href={`/recipes/${recipe.id}`} className="details">Подробнее → → →</a>
+        <button className="btn-delete" id={recipe.id} onClick={()=>deleteHandler(recipe.id)}>
+          Удалить
+        </button>
       </div>
     </>
 
