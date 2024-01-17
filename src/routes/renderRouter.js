@@ -16,8 +16,23 @@ router.get('/recipes', async (req, res) => {
   res.render('Layout', initState);
 });
 
-router.get('/login', (req, res) => { res.render('Layout'); });
-router.get('/signup', (req, res) => { res.render('Layout'); });
-router.get('/account', (req, res) => { res.render('Layout'); });
+router.get('/recipes/:id', async (req, res) => {
+  try {
+    const recipe = await Recipe.findByPk(req.params.id);
+    res.render('Layout', {recipe});
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get('/login', (req, res) => {
+  res.render('Layout');
+});
+router.get('/signup', (req, res) => {
+  res.render('Layout');
+});
+router.get('/account', (req, res) => {
+  res.render('Layout');
+});
 
 export default router;

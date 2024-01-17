@@ -7,6 +7,7 @@ import LoginPage from '../pages/LoginPage';
 import SignUpPage from '../pages/SignUpPage';
 import AccountPage from '../pages/AccountPage';
 import RecipesPage from '../pages/RecipesPage';
+import RecipePage from '../pages/RecipePage';
 
 export default function App({ recipes, login }) {
   console.log('App:', login);
@@ -22,12 +23,11 @@ export default function App({ recipes, login }) {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/recipes" element={<RecipesPage recipes={recipes} login={login} />} />
-
+          <Route path="/recipes/:id" element={<RecipePage recipe={recipe} />} />
         </Routes>
 
         <Footer />
       </div>
-
     </>
   );
 }
