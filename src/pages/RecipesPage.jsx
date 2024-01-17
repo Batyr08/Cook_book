@@ -7,7 +7,7 @@ export default function RecipesPage({ recipes }) {
   return (
     <div>
       <AddRecipeForm setRecipes={setRecipesState} />
-      <RecipesList recipes={recipesState} setRecipe={setRecipesState} />
+      <RecipesList recipes={recipesState} setRecipe={setRecipesState}/>
     </div>
   );
 }
