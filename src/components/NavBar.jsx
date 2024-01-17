@@ -16,6 +16,7 @@ export default function NavBar() {
             <li><a href="/about">О нас</a></li>
             <li><a href="/account">Профиль</a></li>
             <li style={{ paddingTop: '90px' }}><a href="/login">Войти</a></li>
+            <li style={{ paddingTop: '90px' }}><a href="/api/auth/logout">Выйти</a></li>
             <div className="navlogo">
               <a href="/chat"><img className="chatpng" src="/img/chat.png" alt="enteringico" /></a>
             </div>
