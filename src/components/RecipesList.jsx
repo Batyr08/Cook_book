@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-export default function RecipesList({ recipes, setRecipe }) {
+export default function RecipesList({ recipes, setRecipe, login }) {
   const deleteHandler = async(id)=>{
     const response = await fetch(`/api/recipes/${id}`,{
       method: 'DELETE'
@@ -12,6 +12,7 @@ export default function RecipesList({ recipes, setRecipe }) {
   }
   return (
     <>
+    {login ? 'залогинен' : 'нихуя' }
       <link rel="stylesheet" href="/css/recipelist.css" />
       <div className="recipes_list">
         {recipes.length !== 0 ? (

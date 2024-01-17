@@ -29,7 +29,7 @@ const sessionConfig = {
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 9999999,
+    maxAge: 60 * 60 * 1000,
     httpOnly: true,
   },
 };
@@ -43,7 +43,8 @@ app.use(express.static('public'));
 app.use(resLocals);
 
 app.get('/', (req, res) => {
-  res.render('Layout', {});
+  const { login } = req.session;
+  res.render('Layout', { login });
 });
 
 app.use('/', renderRouter);

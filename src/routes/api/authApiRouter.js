@@ -2,20 +2,26 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 
 import { User } from '../../../db/models';
+import resLocals from '../../middlewares/resLocals';
 
 const router = express.Router();
 
 // router.get('/login', async (req, res) => {
 // })
 
-router.post('/login', async (req, res) => {
+router.post('/login', resLocals, async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ where: { email } });
     if (user) {
       const checkPass = await bcrypt.compare(password, user.password);
       if (checkPass) {
+          // req.session.user = {
+          //   id: user.id,
+          //   name: user.login,
+          // };
         req.session.login = user.login;
+        // res.locals.login = user.login;
         req.session.save(() => {
           res.json({ msg: 'Вы успешно авторизованы' });
         });

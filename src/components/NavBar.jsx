@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function NavBar() {
+export default function NavBar({ login }) {
+  console.log(login)
   return (
     <>
       <link rel="stylesheet" href="/css/navbar.css" />
@@ -15,6 +16,8 @@ export default function NavBar() {
             <li><a href="/recipes">Рецепты</a></li>
             <li><a href="/about">О нас</a></li>
             <li><a href="/account">Профиль</a></li>
+            <li>{login ? 'залогиген' : 'незалогинен' }</li>
+            <li>login: {login}</li>
             <li style={{ paddingTop: '90px' }}><a href="/login">Войти</a></li>
             <li style={{ paddingTop: '90px' }}><a href="/api/auth/logout">Выйти</a></li>
             <div className="navlogo">

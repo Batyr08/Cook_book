@@ -130,7 +130,7 @@ dist
 .pnp.*
 
 
-public/app.js
-public/vendor.js
+public/js/app.js
+public/js/vendor.js
 
 sessions

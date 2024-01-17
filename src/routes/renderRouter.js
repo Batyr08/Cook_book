@@ -4,6 +4,7 @@ import { Recipe } from '../../db/models';
 const router = express.Router();
 
 router.get('/recipes', async (req, res) => {
+  console.log('req.session.user: ', req.session.user)
   const initState = {};
   try {
     const recipes = await Recipe.findAll();
